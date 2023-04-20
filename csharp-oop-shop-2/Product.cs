@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace csharp_oop_shop_2
 {
     public class Product
     {
         // Attributes
-        private int code;
-        private string name;
-        private string descripion;
-        private double price;
-        private int iva;
+        protected int code;
+        protected string name;
+        protected string descripion;
+        protected double price;
+        protected int iva;
 
         // Costructor
         public Product(string name, string description, double price, int iva)
@@ -50,7 +47,7 @@ namespace csharp_oop_shop_2
             return Iva;
         }
 
-        public string GetProductString()
+        public virtual string GetProductString()
         {
             string rapprStr = "Codice prodotto: " + this.code + "\n";
             rapprStr += "Nome: " + this.name + "\n";

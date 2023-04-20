@@ -12,7 +12,7 @@ namespace csharp_oop_shop_2
         private int ph;
         private string spring;
 
-        public Water(double liters, int ph, string spring) : base(name, description, price, iva)
+        public Water(string name, string description, double price, int iva, double liters, int ph, string spring) : base(name, description, price, iva)
         {
             SetLiters(liters);
             this.ph = ph;
@@ -59,44 +59,40 @@ namespace csharp_oop_shop_2
         }
 
         // Metodi
-        public void emptyBottle()
-        {
-            this.liters = 0;
-        }
-
-        public void refillBottle()
-        {
-            this.liters = 1.5;
-        }
-
         public void drinkWater()
         {
             this.liters = this.liters - 0.3;
         }
 
-        public void refillUserBottle(double instertedWater)
+        public void refillBottle(double instertedWater)
         {
             if (instertedWater < 0)
             {
-                Console.WriteLine("Non puoi piu rimuovere un valore negativo di acqua, tonto!");
+                Console.WriteLine("Non c'è acqua");
             }
-            else if (instertedWater > 0 && instertedWater <= 1.5 && this.litri + instertedWater < 1.5)
+            else if (instertedWater > 0 && instertedWater <= 1.5 && this.liters + instertedWater < 1.5)
             {
                 this.liters += instertedWater;
             }
             else
             {
-                Console.WriteLine("Hai inserito troppa acqua!");
+                Console.WriteLine("C'è troppa acqua");
             }
+        }
+        public void emptyBottle()
+        {
+            this.liters = 0;
         }
 
 
-        public override void GetProductString()
+        public override string GetProductString()
         {
-            base.GetProductString();
-            Console.WriteLine("Litri: " + this.liters);
-            Console.WriteLine("Ph: " + this.ph);
-            Console.WriteLine("La sorgente è: " + this.spring);
+            string rappStr = base.GetProductString();
+            rappStr += "Litri: " + this.liters;
+            rappStr += "Ph: " + this.ph;
+            rappStr += "La sorgente è: " + this.spring;
+
+            return rappStr;
         }
     }
 }
