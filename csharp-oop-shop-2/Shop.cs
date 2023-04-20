@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_oop_shop_composizione
+namespace csharp_oop_shop_2
 {
     public class Shop
     {

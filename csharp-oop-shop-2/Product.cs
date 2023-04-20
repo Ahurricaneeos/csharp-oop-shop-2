@@ -7,55 +7,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace csharp_oop_shop_composizione
+namespace csharp_oop_shop_2
 {
     public class Product
     {
         // Attributes
-        private int codice;
-        private string nome;
-        private string descrizione;
-        private double prezzo;
+        private int code;
+        private string name;
+        private string descripion;
+        private double price;
         private int iva;
 
         // Costructor
-        public Product(string nome, string descrizione, double prezzo, int iva)
+        public Product(string name, string description, double price, int iva)
         {
             int codice = new Random().Next(0, 99999999);
-            this.codice = codice;
-            this.nome = nome;
-            this.descrizione = descrizione;
-            this.prezzo = prezzo;
+            this.code = codice;
+            this.name = name;
+            this.descripion = description;
+            this.price = price;
             this.iva = iva;
         }
         // Getters
-        public int GetCodice() { return codice; }
-        public string GetNome() { return nome; }
-        public string GetDescrizione() { return descrizione; }
-        public double GetPrezzo() { return prezzo; }
+        public int GetCodice() { return code; }
+        public string GetNome() { return name; }
+        public string GetDescrizione() { return descripion; }
+        public double GetPrezzo() { return price; }
         public int GetIva() { return iva; }
 
         // Setters
 
-        public void SetNome(string nome) { this.nome = nome; }
+        public void SetNome(string name) { this.name = name; }
         public void SetIva(int iva) { this.iva = iva; }
-        public void SetDescrizione(string descrizione) { this.descrizione = descrizione; }
-        public void SetPrezzo(double prezzo) { this.prezzo = prezzo; }
+        public void SetDescrizione(string description) { this.descripion = description; }
+        public void SetPrezzo(double price) { this.price = price; }
 
         // Methods
-        private string PrezzoPlusIva()
+        private string PricePlusIva()
         {
-            double ivaSulPrezzo = prezzo + (prezzo * iva / 100);
-            string Iva = ivaSulPrezzo.ToString();
+            double ivaOnPrice = price + (price * iva / 100);
+            string Iva = ivaOnPrice.ToString();
             return Iva;
         }
 
         public string GetProductString()
         {
-            string rapprStr = "Codice prodotto: " + this.codice + "\n";
-            rapprStr += "Nome: " + this.nome + "\n";
-            rapprStr += "Descrizione: " + this.descrizione + " ";
-            rapprStr += "Prezzo: " + this.PrezzoPlusIva() + "\n";
+            string rapprStr = "Codice prodotto: " + this.code + "\n";
+            rapprStr += "Nome: " + this.name + "\n";
+            rapprStr += "Descrizione: " + this.descripion + " ";
+            rapprStr += "Prezzo: " + this.PricePlusIva() + "\n";
             return rapprStr;
         }
     }
